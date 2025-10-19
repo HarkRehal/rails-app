@@ -19,7 +19,7 @@ RUN apk add --no-cache \
 WORKDIR /rails
 
 # Copy Gemfile and install gems
-COPY Gemfile Gemfile.lock ./
+COPY Gemfile ./
 RUN bundle config set --local deployment 'false' && \
     bundle config set --local without '' && \
     bundle install
