@@ -1,0 +1,39 @@
+<%= form_with model: post, local: true, class: "post-form" do |form| %>
+  <% if post.errors.any? %>
+    <div class="error-messages">
+      <h4><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h4>
+      <ul>
+        <% post.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :title, class: "form-label" %>
+    <%= form.text_field :title, class: "form-input", placeholder: "Enter an engaging title..." %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :author, class: "form-label" %>
+    <%= form.text_field :author, class: "form-input", placeholder: "Your name" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :content, class: "form-label" %>
+    <%= form.text_area :content, rows: 15, class: "form-textarea", 
+        placeholder: "Write your blog post content here..." %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :published_at, "Publication Date", class: "form-label" %>
+    <%= form.datetime_local_field :published_at, class: "form-input" %>
+    <small class="form-help">Leave empty to save as draft</small>
+  </div>
+
+  <div class="form-actions">
+    <%= form.submit "Save Post", class: "btn btn-primary" %>
+    <%= link_to "Cancel", posts_path, class: "btn btn-secondary" %>
+  </div>
+<% end %>

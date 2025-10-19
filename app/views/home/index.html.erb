@@ -1,0 +1,26 @@
+<div class="hero-section">
+  <h1 class="hero-title">Welcome to Our Blog</h1>
+  <p class="hero-subtitle">Sharing insights, tutorials, and thoughts on web development</p>
+  
+  <div class="features">
+    <div class="feature-card">
+      <h3>� Blog Posts</h3>
+      <p>Read our latest articles on Rails, web development, and technology</p>
+    </div>
+    
+    <div class="feature-card">
+      <h3>💎 Rails 8.0</h3>
+      <p>Built with the latest Rails framework and modern best practices</p>
+    </div>
+    
+    <div class="feature-card">
+      <h3>� Dockerized</h3>
+      <p>Containerized development environment for easy setup</p>
+    </div>
+  </div>
+  
+  <div class="actions">
+    <%= link_to "Read Our Blog", posts_path, class: "btn btn-primary" %>
+    <%= link_to "Write a Post", new_post_path, class: "btn btn-secondary" %>
+  </div>
+</div>

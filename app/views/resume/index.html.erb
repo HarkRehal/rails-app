@@ -1,0 +1,71 @@
+<div class="resume-container">
+  <header class="resume-header">
+    <div class="profile-section">
+      <div class="profile-image">
+        <% if @resume.profile_image.present? %>
+          <% begin %>
+            <%= image_tag @resume.profile_image, alt: @resume.name, class: "profile-pic" %>
+          <% rescue => e %>
+            <%= image_tag "https://via.placeholder.com/150", alt: @resume.name, class: "profile-pic" %>
+          <% end %>
+        <% else %>
+          <%= image_tag "https://via.placeholder.com/150", alt: @resume.name, class: "profile-pic" %>
+        <% end %>
+      </div>
+      <div class="profile-info">
+        <h1><%= @resume.name %></h1>
+        <h2><%= @resume.title %></h2>
+        <% if session[:user_id] %>
+          <%= link_to "Edit Resume", edit_resume_path, class: "btn btn-outline" %>
+          <%= link_to "Logout", logout_path, method: :delete, class: "btn btn-secondary" %>
+        <% end %>
+      </div>
+    </div>
+  </header>
+
+  <section class="resume-section">
+    <h3>Professional Summary</h3>
+    <p>
+      Technology leader and AI specialist with extensive experience in developing innovative solutions.
+      Focused on creating AI-powered applications and driving technological advancement.
+    </p>
+  </section>
+
+  <section class="resume-section">
+    <h3>Experience</h3>
+    <div class="experience-item">
+      <h4>AI Development & Innovation</h4>
+      <ul>
+        <li>Developed Harki's AI Clone - An advanced AI interaction platform</li>
+        <li>Created AI-powered video solutions for enhanced user engagement</li>
+        <li>Published regular insights and articles on AI technology</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="resume-section">
+    <h3>Projects</h3>
+    <div class="projects-grid">
+      <div class="project-card">
+        <h4>Harki's AI Clone</h4>
+        <p>An interactive AI platform that simulates natural conversation and learning</p>
+      </div>
+      <div class="project-card">
+        <h4>AI Video Platform</h4>
+        <p>Advanced video processing and AI integration for enhanced content creation</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="resume-section">
+    <h3>Connect</h3>
+    <div class="connect-section">
+      <p>Explore my work and connect with me through various platforms:</p>
+      <ul class="connect-links">
+        <li>AI Clone Demo</li>
+        <li>Technical Blog on Substack</li>
+        <li>Professional Network on LinkedIn</li>
+      </ul>
+    </div>
+  </section>
+</div>

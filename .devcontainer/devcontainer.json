@@ -1,0 +1,17 @@
+{
+  "name": "Rails Development",
+  "dockerComposeFile": "../docker-compose.yml",
+  "service": "web",
+  "workspaceFolder": "/app",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "Shopify.ruby-lsp",
+        "aliariff.vscode-erb-beautify",
+        "ms-azuretools.vscode-docker"
+      ]
+    }
+  },
+  "forwardPorts": [3000],
+  "postCreateCommand": "bundle install"
+}

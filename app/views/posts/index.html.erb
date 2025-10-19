@@ -1,0 +1,74 @@
+<div class="blog-header">
+  <h1>Our Blog</h1>
+  <p>Thoughts, insights, and updates from our team</p>
+  <%= link_to "Write New Post", new_post_path, class: "btn btn-primary" %>
+</div>
+
+<div class="posts-container">
+  <% if @posts.any? %>
+    <div class="published-posts">
+      <h2>Published Posts</h2>
+      <% @posts.each do |post| %>
+        <article class="post-card">
+          <div class="post-header">
+            <h3><%= link_to post.title, post_path(post), class: "post-title-link" %></h3>
+            <div class="post-meta">
+              By <strong><%= post.author %></strong> • 
+              <%= post.published_at.strftime("%B %d, %Y") if post.published_at %>
+            </div>
+          </div>
+          
+          <div class="post-excerpt">
+            <%= post.excerpt %>
+          </div>
+          
+          <div class="post-actions">
+            <%= link_to "Read More", post_path(post), class: "btn btn-secondary btn-sm" %>
+            <%= link_to "Edit", edit_post_path(post), class: "btn btn-outline btn-sm" %>
+            <%= button_to "Delete", post_path(post), 
+                method: :delete,
+                class: "btn btn-danger btn-sm",
+                form: { style: 'display: inline-block' },
+                data: { turbo_confirm: "Are you sure you want to delete this post?" } %>
+          </div>
+        </article>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="empty-state">
+      <h3>No posts yet</h3>
+      <p>Be the first to write a blog post!</p>
+      <%= link_to "Create Your First Post", new_post_path, class: "btn btn-primary" %>
+    </div>
+  <% end %>
+
+  <% if @draft_posts.any? %>
+    <div class="draft-posts">
+      <h2>Draft Posts</h2>
+      <% @draft_posts.each do |post| %>
+        <article class="post-card draft">
+          <div class="post-header">
+            <h3><%= link_to post.title, post_path(post), class: "post-title-link" %></h3>
+            <div class="post-meta">
+              By <strong><%= post.author %></strong> • 
+              <span class="draft-badge">Draft</span>
+            </div>
+          </div>
+          
+          <div class="post-excerpt">
+            <%= post.excerpt %>
+          </div>
+          
+          <div class="post-actions">
+            <%= link_to "Edit", edit_post_path(post), class: "btn btn-primary btn-sm" %>
+            <%= button_to "Delete", post_path(post), 
+                method: :delete,
+                class: "btn btn-danger btn-sm",
+                form: { style: 'display: inline-block' },
+                data: { turbo_confirm: "Are you sure you want to delete this post?" } %>
+          </div>
+        </article>
+      <% end %>
+    </div>
+  <% end %>
+</div>

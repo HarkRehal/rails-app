@@ -1,0 +1,21 @@
+<nav class="main-nav">
+  <div class="nav-brand">
+    <%= link_to root_path, class: "home-link" do %>
+      <i class="fas fa-home"></i> Home
+    <% end %>
+  </div>
+  <div class="nav-links">
+    <%= link_to "Harki's AI Clone", "https://www.harkirehal.com/AskAI", 
+        onclick: "return openInIframe(this.href)", 
+        class: "nav-link" %>
+    <%= link_to "AI Video", "https://www.harkirehal.com/AIVideo", 
+        onclick: "return openInIframe(this.href)", 
+        class: "nav-link" %>
+    <%= link_to "Substack", "https://harkirehal.substack.com", 
+        target: "_blank", 
+        class: "nav-link" %>
+    <%= link_to "LinkedIn", "https://www.linkedin.com/in/harki-rehal/", 
+        target: "_blank", 
+        class: "nav-link" %>
+  </div>
+</nav>
