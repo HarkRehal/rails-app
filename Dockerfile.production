@@ -31,7 +31,15 @@ RUN apt-get update -qq && \
     git \
     libpq-dev \
     nodejs \
-    npm
+    npm \
+    libyaml-dev \
+    ruby-dev \
+    zlib1g-dev \
+    liblzma-dev \
+    libgmp-dev \
+    libncurses5-dev \
+    libffi-dev \
+    libreadline6-dev
 
 # Install application gems
 COPY Gemfile Gemfile.lock ./
